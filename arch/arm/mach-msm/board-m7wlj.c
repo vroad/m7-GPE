@@ -5997,11 +5997,6 @@ static void __init register_i2c_devices(void)
 	
 	for (i = 0; i < ARRAY_SIZE(m7wl_i2c_devices); ++i) {
 		if (m7wl_i2c_devices[i].machs & mach_mask) {
-			if (i == 0 && ((skuid & 0xFF) == 0x35)) {
-				pr_info("[TP] Himax 2nd source\n");
-				m7wl_i2c_devices[i].info =  himax_i2c_gsbi3_info;
-				m7wl_i2c_devices[i].len = ARRAY_SIZE(himax_i2c_gsbi3_info);
-			}
 			i2c_register_board_info(m7wl_i2c_devices[i].bus,
 						m7wl_i2c_devices[i].info,
 						m7wl_i2c_devices[i].len);
